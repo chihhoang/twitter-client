@@ -82,6 +82,15 @@
       <artifactId>springfox-data-rest</artifactId>
       <version>${swagger.version}</version>
     </dependency>
+
+    <!-- Twitter Library -->
+    <dependency>
+      <groupId>org.twitter4j</groupId>
+      <artifactId>twitter4j-core</artifactId>
+      <version>[4.0,)</version>
+    </dependency>
+
+
   </dependencies>
 
   <dependencyManagement>
