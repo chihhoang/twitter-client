@@ -3,7 +3,6 @@ package com.twitter.client.controller;
 import com.twitter.client.service.TweetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +23,6 @@ import twitter4j.TwitterException;
 public class TwitterController {
 
   private final TweetService tweetService;
-
-  @GetMapping("/tweets")
-  public String getTweets() {
-    return "";
-  }
 
   @PostMapping("/tweets")
   public Status createTweet(@RequestParam String text) {
