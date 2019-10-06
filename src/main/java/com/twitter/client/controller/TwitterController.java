@@ -3,6 +3,9 @@ package com.twitter.client.controller;
 import com.twitter.client.service.TweetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +20,7 @@ import twitter4j.TwitterException;
 @RequestMapping("/api")
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class TwitterController {
 
   private final TweetService tweetService;
@@ -50,7 +54,7 @@ public class TwitterController {
     return null;
   }
 
-  @PostMapping("/tweets/{id}")
+  @DeleteMapping("/tweets/{id}")
   public Status destroyTweet(@PathVariable long id) {
     try {
       return tweetService.destroyTweet(id);
