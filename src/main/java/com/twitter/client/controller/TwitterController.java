@@ -16,7 +16,7 @@ import twitter4j.Status;
 import twitter4j.TwitterException;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/tweets")
 @Slf4j
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
@@ -24,7 +24,7 @@ public class TwitterController {
 
   private final TweetService tweetService;
 
-  @PostMapping("/tweets")
+  @PostMapping
   public Status createTweet(@RequestParam String text) {
     try {
       return tweetService.createTweet(text);
@@ -36,7 +36,7 @@ public class TwitterController {
     return null;
   }
 
-  @GetMapping("/tweets/{id}")
+  @GetMapping("/{id}")
   public Status getTweet(@PathVariable long id) {
     try {
       return tweetService.getTweet(id);
@@ -48,7 +48,7 @@ public class TwitterController {
     return null;
   }
 
-  @DeleteMapping("/tweets/{id}")
+  @DeleteMapping("/{id}")
   public Status destroyTweet(@PathVariable long id) {
     try {
       return tweetService.destroyTweet(id);
@@ -60,7 +60,7 @@ public class TwitterController {
     return null;
   }
 
-  @GetMapping("/tweets/userTimeline")
+  @GetMapping("/userTimeline")
   public ResponseList<Status> getUserTimeline() {
     try {
       return tweetService.getUserTimeline();
@@ -72,7 +72,7 @@ public class TwitterController {
     return null;
   }
 
-  @GetMapping("/tweets/userTimeline/{userId}")
+  @GetMapping("/userTimeline/{userId}")
   public ResponseList<Status> getUserTimeline(@PathVariable long userId) {
     try {
       return tweetService.getUserTimeline(userId);
