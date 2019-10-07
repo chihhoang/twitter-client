@@ -3,6 +3,10 @@ package com.twitter.client.controller;
 import com.twitter.client.service.TweetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,9 +53,9 @@ public class TwitterController {
   }
 
   @DeleteMapping("/{id}")
-  public Status destroyTweet(@PathVariable long id) {
+  public Status destroyTweet(@PathVariable String id) {
     try {
-      return tweetService.destroyTweet(id);
+      return tweetService.destroyTweet(Long.valueOf(id));
     } catch (TwitterException e) {
       log.error("Error deleting tweet {}. Twitter Service or network unavailable.", id, e);
       e.printStackTrace();
@@ -61,9 +65,20 @@ public class TwitterController {
   }
 
   @GetMapping("/userTimeline")
-  public ResponseList<Status> getUserTimeline() {
+  public ArrayList<HashMap<String, Object>> getUserTimeline() {
     try {
-      return tweetService.getUserTimeline();
+    	ArrayList<HashMap<String, Object>> tweets = new ArrayList<HashMap<String, Object>>();
+    	
+    	for(Status s : tweetService.getUserTimeline()) {
+    		HashMap<String, Object> tweet = new HashMap<String, Object>();
+    		tweet.put("id", String.valueOf(s.getId()));
+    		tweet.put("name", s.getUser().getName());
+    		tweet.put("screenName", s.getUser().getScreenName());
+    		tweet.put("text", s.getText());
+    		tweets.add(tweet);
+    	}
+	
+      return tweets;
     } catch (TwitterException e) {
       log.error("Error getting current user timeline. Twitter Service or network unavailable.", e);
       e.printStackTrace();

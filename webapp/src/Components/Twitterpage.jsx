@@ -88,8 +88,7 @@ export default class ListUser extends Component {
                             <Card.Body>
                               <Card.Title style={{ postion: "relative" }}>
                                 {" "}
-                                {data.user.name + " @12" + data.user.screenName}
-                                >
+                                {data.name + " @" + data.screenName}>
                                 <button
                                   style={{
                                     position: "absolute",
