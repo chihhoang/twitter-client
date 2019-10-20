@@ -22,6 +22,10 @@ import twitter4j.Status;
 import twitter4j.TwitterException;
 
 /** @author choang */
+/**
+ * Code changes for getUserTimeline and destroyTweet API's
+ * @author manishayacham
+ */
 @RestController
 @RequestMapping("/api/tweets")
 @Slf4j
@@ -66,7 +70,7 @@ public class TwitterController {
 
     return null;
   }
-
+  
   @GetMapping("/userTimeline")
   public ArrayList<HashMap<String, Object>> getUserTimeline() {
     try {
