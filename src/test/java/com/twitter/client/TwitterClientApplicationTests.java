@@ -24,37 +24,22 @@ public class TwitterClientApplicationTests {
 	TweetService tweetservice;
 	
 	@Test
-	public void createTweet() {
-		try {
-			assertNotNull(tweetservice.createTweet("test tweet"));
-		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void createTweet() throws TwitterException {
+	  assertNotNull(tweetservice.createTweet("test tweet"));
 	}
 	
 	@Test
-	public void getUserTimeline() {
-		try {
-			assertNotNull(tweetservice.getUserTimeline());
-		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void getUserTimeline() throws TwitterException {
+	  assertNotNull(tweetservice.getUserTimeline());
 	}
 	
 	@Test
-	public void destroyTweet() {		
-		try {
-			ResponseList<Status> statusResponse = tweetservice.getUserTimeline();
-			if(statusResponse.size() > 0) {
-				//deletes first tweet in the usertimeline
-				Status status = statusResponse.get(0);
-				assertNotNull(tweetservice.destroyTweet(status.getId()));
-			}			
-		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	public void destroyTweet() throws TwitterException {		
+	  ResponseList<Status> statusResponse = tweetservice.getUserTimeline();
+	    if(statusResponse.size() > 0) {
+		  //deletes first tweet in the usertimeline
+		  Status status = statusResponse.get(0);
+		  assertNotNull(tweetservice.destroyTweet(status.getId()));		
+	    }
+    }
 }
