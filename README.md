@@ -9,3 +9,10 @@ Run the Spring boot app with
 ```$xslt
 ./mvnw
 ```
+
+# To start frontend app:
+
+Commands for installing node modules:
+cd webapp
+npm install
+npm start
