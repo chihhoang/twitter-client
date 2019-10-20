@@ -3,6 +3,9 @@ package com.twitter.client.service.impl;
 import com.twitter.client.service.TweetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import twitter4j.Query;
+import twitter4j.QueryResult;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -28,9 +31,9 @@ public class TweetServiceImpl implements TweetService {
   public Status destroyTweet(long id) throws TwitterException {
     return twitter.destroyStatus(id);
   }
-
   @Override
   public ResponseList<Status> getUserTimeline() throws TwitterException {
+	  
     return twitter.getUserTimeline();
   }
 
@@ -38,4 +41,10 @@ public class TweetServiceImpl implements TweetService {
   public ResponseList<Status> getUserTimeline(long userId) throws TwitterException {
     return twitter.getUserTimeline(userId);
   }
+  
+
+@Override
+public QueryResult searchTwitter(Query query) throws TwitterException {
+	return twitter.search(query);
+}
 }
