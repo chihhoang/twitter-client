@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import SearchComponent from "./SearchComponent";
 
 export default class ListUser extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export default class ListUser extends Component {
     });
   };
 
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -53,7 +55,6 @@ export default class ListUser extends Component {
   render() {
     return (
       <div>
-        <Container>
           <Row className="justify-content-md-center">
             <h1 style={{ color: "#00acee" }}>TwitterPage</h1>
           </Row>
@@ -117,7 +118,9 @@ export default class ListUser extends Component {
             </Col>
             <Col></Col>
           </Row>
-        </Container>
+    
+       
+
       </div>
     );
   }
