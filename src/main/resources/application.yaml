@@ -1,0 +1,5 @@
+app:
+  env: none
+
+server:
+  port: 8999
