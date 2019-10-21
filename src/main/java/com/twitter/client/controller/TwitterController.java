@@ -25,7 +25,7 @@ import twitter4j.TwitterException;
 /**
  * Code changes for getUserTimeline and destroyTweet API's
  * @author manishayacham
- */
+ **/
 /***
  * @author Anvitha Karanam
  * added Search API functionality to fetch 10 latest tweets containing the 'user-specified-keyword'.  
