@@ -9,6 +9,11 @@ import SearchComponent from "./Components/SearchComponent";
 /***
  * @author Manisha Yacham
  ***/
+/***
+ * @author Anvitha Karanam
+ * Re-modified twitter homepage by adding a BrowserRouter component,
+ * for adding navigation bar to navigate through home and search pages 
+ ***/
 
 ReactDOM.render(
   <BrowserRouter>
