@@ -9,7 +9,7 @@ import twitter4j.TwitterException;
 /** @author choang */
 /***
  * @author Anvitha Karanam
- * Added a new searchTwitter method signature 
+ * Added a new searchTwitter method-signature 
  ***/
 public interface TweetService {
   Status createTweet(String text) throws TwitterException;
