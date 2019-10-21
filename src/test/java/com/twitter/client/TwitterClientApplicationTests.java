@@ -11,6 +11,7 @@ import com.twitter.client.service.TweetService;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.TwitterException;
+import twitter4j.Query;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -42,4 +43,11 @@ public class TwitterClientApplicationTests {
 		  assertNotNull(tweetservice.destroyTweet(status.getId()));		
 	    }
     }
+	
+	@Test
+	public void queryResult() throws TwitterException {
+	    Query query = new Query("unite");
+		assertNotNull(tweetservice.searchTwitter(query));
+				
+	}
 }
