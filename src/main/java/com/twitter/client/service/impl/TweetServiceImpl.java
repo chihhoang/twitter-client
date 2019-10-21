@@ -42,6 +42,10 @@ public class TweetServiceImpl implements TweetService {
   public ResponseList<Status> getUserTimeline(long userId) throws TwitterException {
     return twitter.getUserTimeline(userId);
   }
+  
+  /***
+ * @author Anvitha Karanam
+ ***/
 
   @Override
   public QueryResult searchTwitter(Query query) throws TwitterException {
