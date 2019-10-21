@@ -2,6 +2,10 @@ import React , {Component} from 'react'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 
+/***
+ * @author Anvitha Karanam
+ * Added front-end UI to accept user query(keyword) & display the filtered tweets results 
+ ***/
 
 class SearchComponent extends Component {
 
